@@ -62,7 +62,7 @@ public class LancamentoResource {
 	private MessageSource messageSource;
 
 	@PostMapping("/anexo")
-	@PreAuthorize("hasAuthority('ROLE_CADASTRAR_LANCAMENTO') and #oauth2.hasScope('write')")
+	@PreAuthorize("hasAuthority('ROLE_CADASTRAR_LANCAMENTO') and hasAuthority('SCOPE_write')")
 	public String uploadAnexo(@RequestParam MultipartFile anexo) throws IOException {
 		OutputStream out = new FileOutputStream(
 				"/home/alexandre/Desktop/anexo--" + anexo.getOriginalFilename());
